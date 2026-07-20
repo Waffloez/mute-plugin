@@ -19,9 +19,39 @@ reasons:
   racism:
     display: "Racism"
     duration: "10d"
+  homophobia:
+    display: "Homophobia/Discrimination"
+    duration: "10d"
   caps:
     display: "Excessive Caps"
     duration: "1h"
+  flooding:
+    display: "Chat Flooding"
+    duration: "6h"
+  swearing:
+    display: "Excessive Swearing"
+    duration: "12h"
+  harassment:
+    display: "Harassment"
+    duration: "5d"
+  threats:
+    display: "Threats"
+    duration: "14d"
+  doxxing:
+    display: "Doxxing"
+    duration: "30d"
+  scamming:
+    display: "Scamming"
+    duration: "14d"
+  impersonation:
+    display: "Impersonating Staff"
+    duration: "7d"
+  politics:
+    display: "Political Arguments"
+    duration: "1d"
+  nsfw:
+    display: "NSFW Content"
+    duration: "7d"
 
 voicechat:
   enabled: true
