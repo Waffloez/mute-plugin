@@ -39,10 +39,10 @@ public final class MutePlugin extends JavaPlugin implements CommandExecutor, Tab
         saveDefaultConfig();
         loadConfigValues();
 
-        getCommand("mute").setExecutor(this);
-        getCommand("mute").setTabCompleter(this);
-        getCommand("unmute").setExecutor(this);
-        getCommand("unmute").setTabCompleter(this);
+        getCommand("punish").setExecutor(this);
+        getCommand("punish").setTabCompleter(this);
+        getCommand("unpunish").setExecutor(this);
+        getCommand("unpunish").setTabCompleter(this);
 
         if (voicechatEnabled && getServer().getPluginManager().getPlugin("LuckPerms") == null) {
             getLogger().warning("LuckPerms not found - voice chat muting will be skipped.");
@@ -76,9 +76,9 @@ public final class MutePlugin extends JavaPlugin implements CommandExecutor, Tab
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         String name = command.getName().toLowerCase();
-        if (name.equals("mute")) {
+        if (name.equals("punish")) {
             return handleMute(sender, args);
-        } else if (name.equals("unmute")) {
+        } else if (name.equals("unpunish")) {
             return handleUnmute(sender, args);
         }
         return false;
@@ -101,7 +101,7 @@ public final class MutePlugin extends JavaPlugin implements CommandExecutor, Tab
         }
 
         if (args.length < 2) {
-            sender.sendMessage(ChatColor.RED + "Usage: /mute <player> <reason>");
+            sender.sendMessage(ChatColor.RED + "Usage: /punish <player> <reason>");
             sender.sendMessage(ChatColor.GRAY + "Reasons: " + String.join(", ", reasons.keySet()));
             return true;
         }
@@ -167,7 +167,7 @@ public final class MutePlugin extends JavaPlugin implements CommandExecutor, Tab
         }
 
         if (args.length < 1) {
-            sender.sendMessage(ChatColor.RED + "Usage: /unmute <player>");
+            sender.sendMessage(ChatColor.RED + "Usage: /unpunish <player>");
             return true;
         }
 
@@ -255,7 +255,7 @@ public final class MutePlugin extends JavaPlugin implements CommandExecutor, Tab
                     out.add(p.getName());
                 }
             }
-        } else if (args.length == 2 && name.equals("mute")) {
+        } else if (args.length == 2 && name.equals("punish")) {
             String partial = args[1].toLowerCase();
             for (String key : reasons.keySet()) {
                 if (key.startsWith(partial)) {
