@@ -1,0 +1,30 @@
+# Mute - mute reason definitions
+#
+# Add your own! Each entry has:
+#   display:  text shown in the mute reason and chat messages
+#   duration: mute length in LiteBans format (e.g. 30d, 7d, 24h, 2h, 30m),
+#             or "perm" for a permanent mute
+#
+# The key is what you type: /mute <player> <key>
+reasons:
+  spam:
+    display: "Spam"
+    duration: "1d"
+  toxicity:
+    display: "Toxicity/Insults"
+    duration: "3d"
+  advertising:
+    display: "Advertising"
+    duration: "7d"
+  racism:
+    display: "Racism"
+    duration: "10d"
+  caps:
+    display: "Excessive Caps"
+    duration: "1h"
+
+voicechat:
+  enabled: true
+  permission-node: "voicechat.speak"
+
+use-litebans: true
