@@ -7,21 +7,21 @@ description: Operator command to mute players for preset reasons, including voic
 softdepend: [LiteBans, LuckPerms]
 
 commands:
-  mute:
+  punish:
     description: Mute a player for a preset reason.
-    usage: "/mute <player> <reason> | /mute reload"
+    usage: "/punish <player> <reason> | /punish reload"
     permission: mute.use
-  unmute:
+  unpunish:
     description: Unmute a player.
-    usage: "/unmute <player>"
+    usage: "/unpunish <player>"
     permission: mute.unmute
 
 permissions:
   mute.use:
-    description: Allows use of /mute to mute players.
+    description: Allows use of /punish to mute players.
     default: op
   mute.unmute:
-    description: Allows use of /unmute to unmute players.
+    description: Allows use of /unpunish to unmute players.
     default: op
   mute.reload:
     description: Allows reloading the Mute config.
