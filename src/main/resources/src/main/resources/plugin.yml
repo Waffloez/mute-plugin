@@ -1,0 +1,28 @@
+name: Mute
+version: 1.0.0
+main: com.example.mute.MutePlugin
+api-version: '1.20'
+author: server-admin
+description: Operator command to mute players for preset reasons, including voice chat.
+softdepend: [LiteBans, LuckPerms]
+
+commands:
+  mute:
+    description: Mute a player for a preset reason.
+    usage: "/mute <player> <reason> | /mute reload"
+    permission: mute.use
+  unmute:
+    description: Unmute a player.
+    usage: "/unmute <player>"
+    permission: mute.unmute
+
+permissions:
+  mute.use:
+    description: Allows use of /mute to mute players.
+    default: op
+  mute.unmute:
+    description: Allows use of /unmute to unmute players.
+    default: op
+  mute.reload:
+    description: Allows reloading the Mute config.
+    default: op
