@@ -138,8 +138,12 @@ public final class MutePlugin extends JavaPlugin implements CommandExecutor, Tab
 
         if (useLiteBans && getServer().getPluginManager().getPlugin("LiteBans") != null) {
             String liteBansDuration = isPermanent(reason.duration()) ? "permanent" : reason.duration();
-            String cmd = "litebans mute " + resolvedName + " " + liteBansDuration + " " + reason.display();
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd);
+            String cmd = "mute " + resolvedName + " " + liteBansDuration + " " + reason.display();
+            boolean ran = Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd);
+            if (!ran) {
+                sender.sendMessage(ChatColor.RED + "Warning: the LiteBans mute command didn't run - text chat may not actually be muted.");
+                getLogger().warning("Failed to dispatch command: " + cmd);
+            }
         } else if (target != null) {
             target.sendMessage(ChatColor.RED + "You have been muted: " + reason.display());
         }
@@ -184,7 +188,7 @@ public final class MutePlugin extends JavaPlugin implements CommandExecutor, Tab
         }
 
         if (useLiteBans && getServer().getPluginManager().getPlugin("LiteBans") != null) {
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "litebans unmute " + targetName);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "unmute " + targetName);
         }
 
         if (voicechatEnabled && getServer().getPluginManager().getPlugin("LuckPerms") != null) {
